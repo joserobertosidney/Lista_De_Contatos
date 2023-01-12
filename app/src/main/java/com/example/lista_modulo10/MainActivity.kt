@@ -5,6 +5,8 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.lista_modulo10.databinding.ActivityMainBinding
+import faker.com.fasterxml.jackson.databind.util.ClassUtil.name
+import io.github.serpro69.kfaker.faker
 
 class MainActivity : AppCompatActivity() ,ListAdapter.AdapterList{
 
@@ -27,16 +29,9 @@ class MainActivity : AppCompatActivity() ,ListAdapter.AdapterList{
     }
 
     private fun onList (){
+        val faker = faker {  }
 
-        listaDeContato.add(ContactList( "Marcos", "999999999","teste@test1"))
-        listaDeContato.add(ContactList( "Joao", "999999998","teste@test2"))
-        listaDeContato.add(ContactList( "Pina", "999999997","teste@test3"))
-        listaDeContato.add(ContactList( "Kennedy", "999999996","teste@test4"))
-        listaDeContato.add(ContactList( "Rafael", "999999995","teste@test5"))
-        repeat(50){listaDeContato.add(ContactList.aleatorio())}
-
-
-
+        repeat(500){ listaDeContato.add(ContactList("${faker.name.firstName()}","${faker.phoneNumber.cellPhone.number()}","${faker.address.city()}"))}
     }
 
 

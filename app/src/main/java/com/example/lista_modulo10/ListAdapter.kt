@@ -11,7 +11,6 @@ class ListAdapter (
         ):RecyclerView.Adapter<ListAdapter.ListItemViewHolder>(){
 
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListItemViewHolder {
         return ListItemViewHolder(
         ItemBinding.inflate(
@@ -23,24 +22,22 @@ class ListAdapter (
         )
     }
 
-
     override fun onBindViewHolder(holder: ListItemViewHolder, position: Int) {
         var item = list[position]
 
-        holder.posicao.text = list.size.toString()
+        holder.posicao.text = position.toString()
         holder.nome.text = item.name
         holder.numero.text = item.number
 
         holder.root.setOnClickListener{
-            listener.click(item.email)
+            listener.click(item.adress)
         }
-
     }
 
     override fun getItemCount(): Int {
         return list.size
-    }
 
+    }
 
     class ListItemViewHolder(binding: ItemBinding) : RecyclerView.ViewHolder(binding.root){
 
@@ -52,6 +49,5 @@ class ListAdapter (
 
     interface AdapterList {
         fun click (content : String);
-          }
-
+    }
         }
