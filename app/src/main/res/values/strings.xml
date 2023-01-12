@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="app_name">lista_modulo10</string>
+    <string name="lista_contatos">Lista</string>
+    <string name="action_settings">configuracoes</string>
+
+</resources>
